@@ -30,17 +30,16 @@ class Vector3D():
         '''returns a radian measure of the angle between two variables measured from this to the given'''
         return(math.acos(self.dot(vector)/(self.Magnitude() * vector.Magnitude())))
     
-    def interpolate(self, r) -> Line:
-        deltaT = 1
-        v = r.subtract(r0).scaleVector(1/deltaT)
-        r0 = Vector3D(r0.x - v.x, r0.y - v.y, r0.z - v.z)
-        return lambda time : r0.add(v.scaleVector(time))
+    def interpolate(self, r):
+        v = self.subtract(r)
+        return lambda time : self.add(v.scaleVector(time))
 
     def projectToPlane(self, camera, plane) -> tuple: 
         lerp = camera.interpolate(self)
+        v = camera.subtract(self)
+        t = -camera.x/v.x
         lerp(t)
-        return 
-
+        return lerp(t)
 
     def proj(self, vector):
         '''the projection of vector onto self'''

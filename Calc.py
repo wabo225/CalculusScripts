@@ -1,5 +1,9 @@
 from vector import Vector3D
 # from shapes import plane, line
 
-print(Vector3D(5^2, 1-5, 4(5)).dot(Vector3D(-9,-2, 7)) + Vector3D(2(5), -1, 4).dot(Vector3D(-4,5,-4)))
-
+Zero = Vector3D(0, 0, 0)
+i = Vector3D(1, 0, 0)
+j = Vector3D(0, 1, 0)
+k = Vector3D(0, 0, 1)
+if k.toList() == i.cross(j).toList():
+    print(k.toList())
