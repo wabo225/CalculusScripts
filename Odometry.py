@@ -1,13 +1,16 @@
 from math import cos
 import matplotlib
 
-def advance():
+def advance(at: list, ax: list, ay: list):
     theta = theta + dtheta/dt
     dx = (l/2)*(Wr + Wl)*cos(theta)
     dy = (l/2)*(Wr + Wl)*sin(theta)
     x = x + dx/dt
     y = y + dy/dt
     t += dt
+    ax.append(x)
+    ay.append(y)
+    at.append(theta)
 
 t = 0
 
