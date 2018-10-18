@@ -26,17 +26,19 @@ class mass():
 		self.Velocity = v.add(a.scaleVector(dt))
 
 x_0 = vector(0,1,0)
-v_0 = vector(0,0,0)
-a = vector(1, 0, 0)
+v_0 = vector(1,1,0)
+a = vector(0, -1, 0)
 
 o = mass(x_0,v_0, a)
 
-pvtx = []
-pvty = []
+pvtx = np.ndarray([])
+pvty = np.ndarray([])
+velocityM = np.ndarray([])
 t = 0
 while t < 2:
-	pvtx.append(o.Position.x)
-	pvty.append(o.Position.y)
+	np.append(pvtx, o.Position.x)
+	np.append(pvty, o.Position.y)
+	np.append(velocityM, o.Velocity.Magnitude())
 	o.progress(0.1)
 	t += 0.1 
 

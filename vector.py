@@ -1,6 +1,4 @@
 import math
-# from shapes import line
-#  ^ circular logic :(
 
 class Vector3D():
     """useful storage container for three dimensional vectors"""
